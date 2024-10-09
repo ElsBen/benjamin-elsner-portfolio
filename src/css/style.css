@@ -1,0 +1,94 @@
+
+/* ### GLOBAL ### */
+
+:root{
+
+    --back-color: #0c0417;
+    --head-font-color: #e5e4e6;
+    --font-color: #c7c0d7;
+    --sub-font-color: #7f8791;
+    --main-color: #190e38;
+    --first-color: #382761;
+    --fourth-color: #6c46ce;
+
+    --main-font: 'Monteserrat';
+    --second-font: 'Roboto';
+    --third-font: sans-serif;
+    --fourth-font: Arial;
+
+    --spacing-zero: 0;
+
+    --shadow-inf-boxes: 5px 5px 5px 0px #6c46ce, inset 4px 4px 15px 0px #6c46ce, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--main-font), var(--second-font), var(--third-font), var(--fourth-font);
+    font-size: 16px;
+}
+
+body{
+    background-color: var(--back-color);
+}
+
+header > p, .info-box-left{
+    color: var(--sub-font-color);
+}
+
+header > h1{
+    font-size: 4rem;
+    color: var(--head-font-color);
+    text-align: center;
+}
+
+.info-boxes{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.info-box-left, .info-box-right{
+    width: 40%;
+    min-width: 30%;
+    height: 200px;
+    padding: 2%;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow-inf-boxes);
+}
+
+.info-box-left{
+    background-color: var(--main-color);
+}
+
+.info-box-right{
+    background-color: var(--first-color);
+    color: var(--font-color);
+    align-self: flex-end;
+}
+
+/* .info-boxes-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -99px;
+    width: 100px;
+    height: 200px;
+    background: linear-gradient(90deg, var(--main-color), var(--first-color));
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.info-boxes-left::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -1px;
+    width: 100px;
+    height: 200px;
+    background: linear-gradient(93deg, var(--main-color), var(--first-color));
+    clip-path: polygon(0 0, 100% 0, 130% 100%, 0 100%);
+} */

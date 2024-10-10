@@ -103,11 +103,37 @@ header > h1{
     content: '';
     width: 55%;
     height: 2px;
-    background-color: var(--fourth-color);
+    background: linear-gradient(90deg, 
+                var(--fourth-color), 
+                var(--first-color), 
+                var(--fourth-color), 
+                var(--first-color), 
+                var(--fourth-color), 
+                var(--first-color));
+    background-size: 200% 200%;
     position: absolute;
     bottom: 0;
     right: -53%;
     transform: rotate(25deg);
+    animation: pulls 2s linear infinite;
+}
+
+@keyframes pulls {
+    0% {
+        background-position: 0% 0%;
+    }
+    25%{
+        background-position: 25% 25%;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    75%{
+        background-position: 75% 75%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
 }
 
 /* .info-boxes-right::before {

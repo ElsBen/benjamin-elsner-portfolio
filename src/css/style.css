@@ -4,6 +4,7 @@
 :root{
 
     --back-color: #0c0417;
+    --back-sub-color: #191970;
     --head-font-color: #e5e4e6;
     --font-color: #c7c0d7;
     --sub-font-color: #7f8791;
@@ -29,15 +30,29 @@
     font-size: 16px;
 }
 
-body{
-    background: repeating-linear-gradient(45deg, var(--back-color), var(--first-color)50%, var(--back-color));
+#background {
+    background: linear-gradient(60deg, var(--back-color), var(--back-sub-color) 10%, var(--back-color));
 }
 
+/* ### HEADER ### */
+
 header > p {
-    padding: 4rem 15rem 2rem 0;
-    color: var(--sub-font-color);
+    padding: 4rem 18rem 2rem 0;
+    color: var(--font-color);
     font-size: 1.5rem;
     text-align: center;
+}
+
+
+
+.blinking{
+    animation: blinking 4s infinite;
+}
+
+@keyframes blinking {
+    0% {opacity: 1;}
+    50% {opacity: 0.5;}
+    100% {opacity: 1;}
 }
 
 header > h1{
@@ -47,7 +62,23 @@ header > h1{
     text-align: center;
 }
 
-.info-boxes{
+#about-me-box{
+    background-color: var(--first-color);
+    color: var(--font-color);
+}
+
+/* ### INFO BOXES ### */
+
+.boxes-style {
+    padding: 2%;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    box-shadow: var(--shadow-inf-boxes);
+}
+
+.boxes-container{
     padding: 4rem 1rem 0 1rem;
     display: flex;
     flex-direction: column;
@@ -56,12 +87,6 @@ header > h1{
 .info-box-left, .info-box-right{
     max-width: 40%;
     max-height: 10%;
-    padding: 2%;
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    box-shadow: var(--shadow-inf-boxes);
 }
 
 .info-box-left{

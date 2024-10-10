@@ -43,18 +43,6 @@ header > p {
     text-align: center;
 }
 
-
-
-.blinking{
-    animation: blinking 4s infinite;
-}
-
-@keyframes blinking {
-    0% {opacity: 1;}
-    50% {opacity: 0.5;}
-    100% {opacity: 1;}
-}
-
 header > h1{
     padding: 0 0 4rem 0;
     font-size: 4rem;
@@ -65,6 +53,16 @@ header > h1{
 #about-me-box{
     background-color: var(--first-color);
     color: var(--font-color);
+}
+
+.blinking{
+    animation: blinking 4s infinite;
+}
+
+@keyframes blinking {
+    0% {opacity: 1;}
+    50% {opacity: 0.5;}
+    100% {opacity: 1;}
 }
 
 /* ### INFO BOXES ### */
@@ -92,12 +90,24 @@ header > h1{
 .info-box-left{
     background-color: var(--main-color);
     color: var(--sub-font-color);
+    position: relative;
 }
 
 .info-box-right{
     background-color: var(--first-color);
     color: var(--font-color);
     align-self: flex-end;
+}
+
+.info-box-left::before{
+    content: '';
+    width: 55%;
+    height: 2px;
+    background-color: var(--fourth-color);
+    position: absolute;
+    bottom: 0;
+    right: -53%;
+    transform: rotate(25deg);
 }
 
 /* .info-boxes-right::before {

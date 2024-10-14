@@ -47,7 +47,6 @@ p {
   );
   overflow: hidden;
   position: relative;
-  z-index: 100;
 }
 
 .star {
@@ -139,6 +138,11 @@ header > h1 {
 
 /* ### INFO BOXES ### */
 
+.boxes-container > h2{
+  font-size: 3rem;
+  padding: 0 0 4rem 0;
+}
+
 .boxes-style {
   padding: 2%;
   border-radius: 30px;
@@ -212,7 +216,7 @@ header > h1 {
   right: -54.5%;
   transform: rotate(20deg);
   animation: pulls 3s linear infinite;
-  z-index: 0;
+  
 }
 
 @keyframes pulls {

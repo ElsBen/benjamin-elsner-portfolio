@@ -85,25 +85,24 @@ header > h1 {
 }
 
 .image-container {
+  width: 100%;
+  height: auto;
   display: flex;
   justify-content: center;
-  position: relative;
 }
 
 .image-container > .styled-image {
-  filter: grayscale(100%) brightness(1.0) sepia(100%) hue-rotate(200deg);
+  filter: grayscale(100%) brightness(1.0) sepia(100%) hue-rotate(230deg);
   opacity: 0.4;
   width: 200px;
   height: auto;
-  position: absolute;
-  bottom: 30%;
-  right: 15%;
+  margin-left: 15%;
 }
 
 #about-me-box {
   background-color: var(--first-color);
   color: var(--font-color);
-  z-index: 100;
+  z-index: 1;
 }
 
 .blinking {

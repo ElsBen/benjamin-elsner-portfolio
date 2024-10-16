@@ -98,6 +98,14 @@ header > h1 {
   margin-left: 15%;
 }
 
+#about-me-box {
+  align-items: center;
+}
+
+.typing-animation {
+  width: 80%;
+}
+
 .line {
   color: var(--font-color);
   font-family: monospace, 'Courier New', Courier;

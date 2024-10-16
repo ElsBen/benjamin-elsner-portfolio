@@ -89,6 +89,7 @@ header > h1 {
   justify-content: center;
 }
 
+
 .image-container > .styled-image {
   filter: grayscale(100%) brightness(1) sepia(100%) hue-rotate(230deg);
   opacity: 0.4;
@@ -97,10 +98,60 @@ header > h1 {
   margin-left: 15%;
 }
 
-#about-me-box {
-  background-color: var(--first-color);
+.line {
   color: var(--font-color);
-  z-index: 1;
+  font-family: monospace, 'Courier New', Courier;
+  white-space: nowrap;
+  font-size: 1.2rem;
+  display: block;
+  overflow: hidden;
+  border-color: none;
+  width: 0;
+  animation: typing 4s steps(80, end) forwards, blink-caret 0.75s step-end 5 forwards;
+}
+
+.line:nth-child(1) {
+  animation-delay: 2s;
+}
+
+.line:nth-child(2) {
+  animation-delay: 6s;
+}
+
+.line:nth-child(3) {
+  animation-delay: 10s;
+}
+
+.line:nth-child(4) {
+  animation-delay: 14s;
+}
+
+.line:nth-child(5) {
+  animation-delay: 18s;
+}
+
+.line:nth-child(6) {
+  animation-delay: 22s;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%; 
+  }
+}
+
+@keyframes blink-caret {
+  0% {
+    border-right: 0.15em solid white;
+    border-color: white;
+  }
+  50% {
+    border-color: transparent;
+  }
+  
 }
 
 .blinking {

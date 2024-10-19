@@ -95,71 +95,38 @@ header > h1 {
   opacity: 0.4;
   width: 200px;
   height: auto;
-  margin-left: 15%;
 }
 
 #about-me-box {
   align-items: center;
 }
 
-.typing-animation {
-  width: 80%;
+#typing-animation {
+  width: 90%;
+  /* width: auto; */
+  min-height: 200px; 
 }
 
-.line {
-  color: var(--font-color);
-  font-family: monospace, 'Courier New', Courier;
-  white-space: nowrap;
+#typing-animation > p {
+  width: 100%;
   font-size: 1.2rem;
-  display: block;
-  overflow: hidden;
-  border-color: none;
-  width: 0;
-  animation: typing 4s steps(80, end) forwards, blink-caret 0.75s step-end 5 forwards;
+  color: white;
+  white-space: normal;
+  line-height: 1.2;
 }
 
-.line:nth-child(1) {
-  animation-delay: 2s;
+.caret {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  animation: blink-caret 0.75s step-end infinite;
 }
 
-.line:nth-child(2) {
-  animation-delay: 6s;
-}
-
-.line:nth-child(3) {
-  animation-delay: 10s;
-}
-
-.line:nth-child(4) {
-  animation-delay: 14s;
-}
-
-.line:nth-child(5) {
-  animation-delay: 18s;
-}
-
-.line:nth-child(6) {
-  animation-delay: 22s;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%; 
-  }
-}
 
 @keyframes blink-caret {
-  0% {
-    border-right: 0.15em solid white;
-    border-color: white;
-  }
   50% {
-    border-color: transparent;
+    color: transparent;
   }
-  
 }
 
 .blinking {

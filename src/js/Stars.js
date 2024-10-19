@@ -9,7 +9,6 @@ export default class Stars {
     }
 
     start() {
-        console.log("Hello World")
         this.createStars();
     }
 

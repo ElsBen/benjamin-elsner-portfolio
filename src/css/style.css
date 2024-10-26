@@ -27,12 +27,22 @@
   font-size: 16px;
 }
 
+body {
+  position: absolute;
+  z-index: -10;
+}
+
 h1,
 h2,
 h3,
 p {
   cursor: default;
   user-select: none;
+}
+
+h2 {
+  font-size: 3rem;
+  padding: 0 0 4rem 0;
 }
 
 #background {
@@ -44,6 +54,7 @@ p {
   );
   overflow: hidden;
   position: relative;
+  z-index: -3;
 }
 
 .star {
@@ -53,7 +64,7 @@ p {
   position: absolute;
   border-radius: 50%;
   position: fixed;
-  z-index: 0;
+  z-index: -2;
   animation: twinkling 2s infinite ease-in-out;
 }
 
@@ -88,7 +99,6 @@ header > h1 {
   position: relative;
 }
 
-
 .image-container > .styled-image {
   width: 200px;
   height: auto;
@@ -98,12 +108,14 @@ header > h1 {
 }
 
 #about-me-box {
-  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
 }
 
 #typing-animation {
-  width: 90%;
-  min-height: 200px; 
+  width: 68%;
+  min-height: 400px;
 }
 
 #typing-animation > p {
@@ -120,7 +132,6 @@ header > h1 {
   font-weight: bolder;
   animation: blink-caret 0.75s step-end infinite;
 }
-
 
 @keyframes blink-caret {
   50% {
@@ -177,7 +188,7 @@ header > h1 {
 
 .boxes-style {
   padding: 2%;
-  border-radius: 30px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   text-align: center;
@@ -190,11 +201,6 @@ header > h1 {
   padding: 4rem 1rem 4rem 1rem;
   display: flex;
   flex-direction: column;
-}
-
-.boxes-container > h2 {
-  font-size: 3rem;
-  padding: 0 0 4rem 0;
 }
 
 .info-box-left,
@@ -262,7 +268,6 @@ header > h1 {
   left: -55.3%;
   transform: rotate(25deg);
   animation: pulls 3s linear infinite;
-
 }
 
 @keyframes pulls {
@@ -276,17 +281,76 @@ header > h1 {
 
 /* ### PROJECTS ### */
 
-#project-container{
+#projects {
+  padding: 4rem 1rem 4rem 1rem;
+}
+
+#project-container {
+  padding-bottom: 8rem;
   display: inline-flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
-.project-cards{
+.project-cards {
   width: 20%;
-  min-width: 200px;
-  height: 400px;
-  margin: 5%;
+  min-width: 400px;
+  height: auto;
+  margin: 2rem;
+  padding: 10px;
+  background: var(--first-color);
+  color: white;
+  border-radius: 10px;
+  position: relative;
+  display: block;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.project-cards::before,
+.project-cards::after {
+  content: "";
+  background-image: conic-gradient(from var(--angle), transparent, #6c46ce);
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  border-radius: inherit;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  animation: circular-color 3s linear infinite;
+}
+
+.project-cards::after {
+  filter: blur(1.5rem);
+  opacity: 0.6;
+}
+
+@keyframes circular-color {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+.project-cards a,
+.project-cards img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.project-cards > p {
+  padding: 5px;
+  text-align: center;
 }
 
 /* TEST SVG */

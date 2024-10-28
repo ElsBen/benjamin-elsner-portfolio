@@ -13,9 +13,11 @@ export default class TypingText {
         ];
 
         this.typingAnimationElement = document.getElementById("typing-animation");
+        this.buildCaret = '<span class="caret">|</span>';
+        this.caret = document.getElementsByClassName('caret');
         this.textIndex = 0;
         this.charIndex = 0;
-        this.delayBetweenWords = 70;
+        this.delayBetweenWords = 50;
         this.delayBetweenLines = 1100;
     }
 
@@ -27,35 +29,37 @@ export default class TypingText {
         let newParagraph = document.createElement("p");
         this.typingAnimationElement.insertAdjacentElement('beforeend', newParagraph);
         if (this.charIndex > 0) {
-            this.typeLine()
+            this.typeLine();
+        } else if (this.textIndex === 0) {
+            this.typingAnimationElement.lastElementChild.innerHTML = this.buildCaret;
+            this.delayStart(this.typeLine.bind(this), this.delayBetweenLines * 2);
         } else {
             this.typeLine();
         }
     }
 
-    typeLine() {
+    delayStart(delayedFunction, delay) {
+        setTimeout(() => {
+            this.typingAnimationElement.lastElementChild.removeChild(this.caret[0]);
+            delayedFunction();
+        },
+            delay
+        );
+    }
 
+    typeLine() {
         if (this.textIndex < this.textArray.length) {
             let currentText = this.textArray[this.textIndex];
-
-            this.typingAnimationElement.lastElementChild.innerHTML = currentText.slice(0, this.charIndex) + '<span class="caret">|</span>';
+            this.typingAnimationElement.lastElementChild.innerHTML = currentText.slice(0, this.charIndex) + this.buildCaret;
             this.charIndex++;
 
             if (this.charIndex > currentText.length) {
                 this.textIndex++;
                 this.charIndex = 0;
-                let caret = document.getElementsByClassName('caret');
-
-                setTimeout(() => {
-                    this.typingAnimationElement.lastElementChild.removeChild(caret[0]);
-                    this.createParagraphAndInsert();
-                },
-                    this.delayBetweenLines
-                );
+                this.delayStart(this.createParagraphAndInsert.bind(this), this.delayBetweenLines);
             } else {
                 setTimeout(this.typeLine.bind(this), this.delayBetweenWords);
             }
         }
     }
-
 }

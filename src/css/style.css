@@ -126,31 +126,27 @@ header > h1 {
   line-height: 1.2;
 }
 
-.caret {
+.cursor {
   color: white;
   font-size: 1.2rem;
   font-weight: bolder;
   position: relative;
-  animation: blink-caret 0.75s step-end infinite;
+  animation: blink-cursor 0.75s step-end infinite;
 }
 
-.caret::after {
+.cursor::after {
   content: "|";
   color: white;
   position: absolute;
   left: 0;
   filter: blur(0.5rem);
-  animation: blink-caret 0.75s step-end infinite;
+  animation: blink-cursor 0.75s step-end infinite;
 }
 
-@keyframes blink-caret {
+@keyframes blink-cursor {
   50% {
     color: transparent;
   }
-}
-
-.blinking {
-  animation: blinking 4s infinite;
 }
 
 .anim-font-color {
@@ -168,18 +164,6 @@ header > h1 {
   -webkit-background-clip: text;
   color: transparent;
   animation: color-animation 4s linear infinite;
-}
-
-@keyframes blinking {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @keyframes color-animation {
@@ -334,12 +318,29 @@ header > h1 {
   left: 50%;
   translate: -50% -50%;
   z-index: -1;
-  animation: circular-color 3s linear infinite;
+  --circular-animation: circular-color 3s linear infinite;
 }
 
 .project-cards::after {
   filter: blur(1.5rem);
   opacity: 0.6;
+}
+
+#webdesign-made-simple::before,
+#webdesign-made-simple::after {
+  animation: var(--circular-animation);
+}
+
+#accounting-application::before,
+#accounting-application::after {
+  animation: var(--circular-animation);
+  animation-delay: 2s;
+}
+
+#anas-website::before,
+#anas-website::after {
+  animation: var(--circular-animation);
+  animation-delay: 1s;
 }
 
 @keyframes circular-color {

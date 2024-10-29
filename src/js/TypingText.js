@@ -13,8 +13,8 @@ export default class TypingText {
         ];
 
         this.typingAnimationElement = document.getElementById("typing-animation");
-        this.buildCaret = '<span class="caret">|</span>';
-        this.caret = document.getElementsByClassName('caret');
+        this.cursorBuild = '<span class="cursor">|</span>';
+        this.cursor = document.getElementsByClassName('cursor');
         this.textIndex = 0;
         this.charIndex = 0;
         this.delayBetweenWords = 50;
@@ -31,7 +31,7 @@ export default class TypingText {
         if (this.charIndex > 0) {
             this.typeLine();
         } else if (this.textIndex === 0) {
-            this.typingAnimationElement.lastElementChild.innerHTML = this.buildCaret;
+            this.typingAnimationElement.lastElementChild.innerHTML = this.cursorBuild;
             this.delayStart(this.typeLine.bind(this), this.delayBetweenLines * 2);
         } else {
             this.typeLine();
@@ -40,7 +40,7 @@ export default class TypingText {
 
     delayStart(delayedFunction, delay) {
         setTimeout(() => {
-            this.typingAnimationElement.lastElementChild.removeChild(this.caret[0]);
+            this.typingAnimationElement.lastElementChild.removeChild(this.cursor[0]);
             delayedFunction();
         },
             delay
@@ -50,7 +50,7 @@ export default class TypingText {
     typeLine() {
         if (this.textIndex < this.textArray.length) {
             let currentText = this.textArray[this.textIndex];
-            this.typingAnimationElement.lastElementChild.innerHTML = currentText.slice(0, this.charIndex) + this.buildCaret;
+            this.typingAnimationElement.lastElementChild.innerHTML = currentText.slice(0, this.charIndex) + this.cursorBuild;
             this.charIndex++;
 
             if (this.charIndex > currentText.length) {

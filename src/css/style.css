@@ -35,7 +35,10 @@ body {
 h1,
 h2,
 h3,
-p {
+h4,
+p,
+label,
+li {
   cursor: default;
   user-select: none;
 }
@@ -288,8 +291,9 @@ header > h1 {
 
 .project-cards {
   width: 20%;
-  min-width: 400px;
-  height: auto;
+  min-width: 430px;
+  height: max-content;
+  min-height: 400px;
   margin: 2rem;
   padding: 10px;
   background: var(--first-color);
@@ -357,11 +361,45 @@ header > h1 {
   width: 100%;
   height: auto;
   border-radius: 10px 10px 0 0;
+  margin-bottom: 1rem;
+}
+
+.project-cards > h4 {
+  margin-bottom: 0.2rem;
 }
 
 .project-cards > p {
-  padding: 5px;
-  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.project-cards li {
+  margin: 1rem 0 0 1rem;
+}
+
+.project-cards > .extra {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+#toggle-webdesign:checked + .extra,
+#toggle-ana-webside:checked + .extra,
+#toggle-liqui:checked + .extra {
+  max-height: 700px;
+}
+
+.project-cards > label {
+  cursor: pointer;
+  text-decoration: underline;
+  position: absolute;
+  left: 50%;
+  translate: -50% -50%;
+  top: 400px;
+}
+
+.project-cards > label:hover {
+  color: #191970;
+  transition: color 0.5s ease;
 }
 
 /* TEST SVG */

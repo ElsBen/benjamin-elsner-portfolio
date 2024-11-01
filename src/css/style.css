@@ -290,7 +290,7 @@ header > h1 {
   flex-wrap: wrap;
 }
 
-.project-cards {
+.box-style-2 {
   width: 20%;
   min-width: 430px;
   height: max-content;
@@ -310,8 +310,8 @@ header > h1 {
   inherits: false;
 }
 
-.project-cards::before,
-.project-cards::after {
+.box-style-2::before,
+.box-style-2::after {
   content: "";
   background-image: conic-gradient(from var(--angle), transparent, #6c46ce);
   width: 100%;
@@ -326,7 +326,7 @@ header > h1 {
   --circular-animation: circular-color 3s linear infinite;
 }
 
-.project-cards::after {
+.box-style-2::after {
   filter: blur(1.5rem);
   opacity: 0.6;
 }
@@ -401,6 +401,70 @@ header > h1 {
 .project-cards > label:hover {
   color: #191970;
   transition: color 0.5s ease;
+}
+
+/* ### FORM ### */
+
+.form-box {
+  min-width: 430px;
+  width: 30%;
+  height: 700px;
+  padding: 3rem;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#form input,
+textarea {
+  float: right;
+  width: 100%;
+  color: white;
+  background-color: #6d46ce78;
+  border-radius: 3px;
+}
+
+#form input {
+  height: 30px;
+  margin-bottom: 1;
+}
+
+#form textarea {
+  height: 200px;
+  margin-top: 1rem;
+  resize: none;
+}
+
+#form input::placeholder,
+textarea::placeholder {
+  color: white;
+}
+
+#form button {
+  width: 150px;
+  height: 40px;
+  color: white;
+  background-color: #6d46ce78;
+  border-radius: 3px;
+  cursor: pointer;
+  align-self: center;
+  transition: all 0.3s ease-in;
+}
+
+#form button:hover {
+  background-color: #6d46ce;
+}
+
+.form-box::before,
+.form-box::after {
+  animation: var(--circular-animation);
+  animation-delay: 1s;
 }
 
 /* TEST SVG */

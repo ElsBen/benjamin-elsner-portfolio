@@ -253,7 +253,7 @@
         <section id="projects">
           <h2 class="anim-font-color">Projekte:</h2>
           <div id="project-container">
-            <div id="webdesign-made-simple" class="project-cards">
+            <div id="webdesign-made-simple" class="project-cards box-style-2">
               <a
                 href="https://elsben.github.io/web-design-made-simple-webside/PROD/"
               >
@@ -322,7 +322,7 @@
               </div>
             </div>
 
-            <div id="anas-website" class="project-cards">
+            <div id="anas-website" class="project-cards box-style-2">
               <a href="https://elsben.github.io/anas-website/PROD">
                 <img
                   src="./src/img/anas_fotoeck.avif"
@@ -398,7 +398,7 @@
               </div>
             </div>
 
-            <div id="accounting-application" class="project-cards">
+            <div id="accounting-application" class="project-cards box-style-2">
               <a href="https://elsben.github.io/accounting-application/">
                 <img
                   src="./src/img/liqui_planner.avif"
@@ -454,6 +454,72 @@
               </div>
             </div>
           </div>
+        </section>
+        <section id="contact-form">
+          <form action="aim-of-the-form" method="post" id="form">
+            <div class="box-style-2 form-box">
+              <div class="first-name">
+                <input
+                  class="input-fields"
+                  type="text"
+                  id="name"
+                  minlength="3"
+                  maxlength="30"
+                  placeholder="Gib hier deinen Vornamen ein..."
+                  required
+                />
+              </div>
+
+              <div class="last-name">
+                <input
+                  class="input-fields"
+                  type="text"
+                  id="last-name"
+                  minlength="3"
+                  maxlength="30"
+                  placeholder="Hier deinen Nachnamen..."
+                  required
+                />
+              </div>
+
+              <div class="e-mail">
+                <input
+                  class="input-fields"
+                  type="text"
+                  id="email"
+                  placeholder="Deine E-mail Adresse für Rückfragen..."
+                  required
+                />
+              </div>
+
+              <div class="phone-number">
+                <input
+                  class="input-fields"
+                  type="text"
+                  id="tele-number"
+                  placeholder="Deine Telefonnummer wenn du magst..."
+                />
+              </div>
+
+              <div class="message-label">
+                <textarea
+                  class="input-fields no-resize"
+                  name="message"
+                  id="message"
+                  cols="30"
+                  rows="6"
+                  minlength="30"
+                  maxlength="300"
+                  placeholder="Hier kannst du uns kurz dein Anliegen schildern..."
+                  required
+                ></textarea>
+              </div>
+              <div class="selection-area"></div>
+              <button class="btn-type-1 form-btn" type="submit">
+                Absenden
+              </button>
+            </div>
+          </form>
         </section>
       </main>
       <footer>

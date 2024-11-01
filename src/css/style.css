@@ -283,6 +283,7 @@ header > h1 {
 }
 
 #project-container {
+  min-height: 1300px;
   padding-bottom: 8rem;
   display: inline-flex;
   justify-content: space-evenly;
@@ -293,7 +294,7 @@ header > h1 {
   width: 20%;
   min-width: 430px;
   height: max-content;
-  min-height: 400px;
+  min-height: 440px;
   margin: 2rem;
   padding: 10px;
   background: var(--first-color);

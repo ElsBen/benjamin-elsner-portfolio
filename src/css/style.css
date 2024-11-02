@@ -504,6 +504,51 @@ textarea::placeholder {
   animation-delay: 1s;
 }
 
+/* ### FORM INFORMATION WINDOW ### */
+
+.sended-user-input-container {
+  width: 100%;
+  height: 100%;
+  background-color: #000000cc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.sended-user-input {
+  width: 500px;
+  height: max-content;
+  padding: 1rem 1rem 1rem 1rem;
+  color: var(--font-color);
+  text-align: center;
+  background-color: var(--first-color);
+  border-radius: 3px;
+}
+
+.sended-user-input > p {
+  padding-bottom: var(--standard-spacing-sm);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.sended-user-input button {
+  min-width: 3rem;
+  height: 2rem;
+}
+
+.user-inf-btn {
+  display: inline-block;
+}
+
+.hide-no-btn {
+  display: inline-block;
+  margin-left: 3.5rem;
+}
+
 /* TEST SVG */
 .animate-circle {
   margin: 5rem;

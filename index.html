@@ -465,24 +465,46 @@
                   id="name"
                   minlength="3"
                   maxlength="30"
-                  placeholder="Gib hier deinen Vornamen ein..."
+                  placeholder="Geben Sie hier ihren Namen ein"
                   required
                 />
               </div>
 
-              <div class="last-name">
+              <div class="company-name">
                 <input
                   class="input-fields"
                   type="text"
                   id="last-name"
                   minlength="3"
                   maxlength="30"
-                  placeholder="Hier deinen Nachnamen..."
+                  placeholder="Hier Ihren Firmennamen"
                   required
                 />
               </div>
 
-              <div class="e-mail">
+              <div class="contact-selection">
+                <p><strong>Bevorzugte Kontaktmethode:</strong></p>
+                <label>
+                  <input
+                    type="radio"
+                    name="contact-preference"
+                    value="email"
+                    onclick="showInput('email')"
+                  />
+                  E-Mail
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name="contact-preference"
+                    value="phone"
+                    onclick="showInput('phone')"
+                  />
+                  Telefon
+                </label>
+              </div>
+
+              <div id="email-container">
                 <input
                   class="input-fields"
                   type="text"
@@ -492,11 +514,11 @@
                 />
               </div>
 
-              <div class="phone-number">
+              <div id="phone-number-container">
                 <input
                   class="input-fields"
                   type="text"
-                  id="tele-number"
+                  id="phone-number"
                   placeholder="Deine Telefonnummer wenn du magst..."
                 />
               </div>

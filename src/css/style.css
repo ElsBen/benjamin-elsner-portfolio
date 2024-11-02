@@ -421,18 +421,55 @@ header > h1 {
   align-items: center;
 }
 
-#form input,
+#form div > input,
 textarea {
-  float: right;
   width: 100%;
   color: white;
   background-color: #6d46ce78;
   border-radius: 3px;
 }
 
-#form input {
+#form div > input {
   height: 30px;
-  margin-bottom: 1;
+}
+
+#form #phone-number-container,
+#email-container {
+  display: none;
+}
+
+.contact-selection > p {
+  margin: 1rem 0 1.5rem 0;
+}
+
+#form .contact-selection {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-selection > label {
+  width: 250px;
+  margin-bottom: 0.8rem;
+}
+
+input[type="radio"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  box-shadow: 1.5px 1.5px 0px 0px rgba(0, 0, 0, 0.821) inset,
+    1.5px 1.5px 0px 0px rgb(128, 128, 128, 0.821);
+  border-radius: 3px;
+  background-color: #6d46ce78;
+  float: right;
+  position: relative;
+}
+
+input[type="radio"]:checked::after {
+  content: "X";
+  color: white;
+  position: absolute;
+  top: 1.5px;
+  left: 4px;
 }
 
 #form textarea {

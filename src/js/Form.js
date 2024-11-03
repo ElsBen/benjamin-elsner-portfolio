@@ -22,8 +22,7 @@ export default class Form {
             this.headlineInputSend = this.userInputSendContent.querySelector('h2');
             this.paragraphInputSend = this.userInputSendContent.querySelector('p');
             this.colorAlert = '#ff7f50'; /*Farbwerte anpassen!!!!*/
-            this.colorSuccess = '#b4ffd8';
-            // Prüfen ob die nachfolgenden Selektoren vorhanden sind!!!
+            this.colorSuccess = 'var(--font-color)';
             this.userInputSendBtn = document.querySelector(
                 '.user-input-sended-btn'
             );
@@ -98,11 +97,11 @@ export default class Form {
 
     areTheEntriesCorrectWindow(entries) {
 
-        const name = `Name: ${entries.name}`;
-        const companyName = `Nachname: ${entries.company}`;
-        const email = `Email: ${entries.email}`;
-        const telephone = `Telefon: ${entries.telephone}`;
-        const message = `Nachricht: ${entries.message}`;
+        const name = `Name:` + <span class="user-content"> + `${entries.name}` + </span>;
+        const companyName = `Nachname:<span class="user-content">${entries.company}</span>`;
+        const email = `Email:<span class="user-content">${entries.email}</span>`;
+        const telephone = `Telefon:<span class="user-content">${entries.telephone}</span>`;
+        const message = `Nachricht:${entries.message}`;
         // Hier eine Logik die bei vorhandensein entweder email oder Nr. diese 
         // nachträglich einfügt
         const formattedEntries = [name, companyName, email, telephone, message];

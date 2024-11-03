@@ -4,7 +4,7 @@
   --back-color: #0c0417;
   --back-sub-color: #191970;
   --head-font-color: #e5e4e6;
-  --font-color: #c7c0d7;
+  --font-color: white;
   --sub-font-color: #7f8791;
   --main-color: #190e38;
   --first-color: #382761;
@@ -124,13 +124,13 @@ header > h1 {
 #typing-animation > p {
   width: 100%;
   font-size: 1.2rem;
-  color: white;
+  color: var(--font-color);
   white-space: normal;
   line-height: 1.2;
 }
 
 .cursor {
-  color: white;
+  color: var(--font-color);
   font-size: 1.2rem;
   font-weight: bolder;
   position: relative;
@@ -139,7 +139,7 @@ header > h1 {
 
 .cursor::after {
   content: "|";
-  color: white;
+  color: var(--font-color);
   position: absolute;
   left: 0;
   filter: blur(0.5rem);
@@ -189,7 +189,7 @@ header > h1 {
   display: flex;
   align-items: center;
   text-align: center;
-  color: white;
+  color: var(--font-color);
   box-shadow: 5px 5px 5px 0px #6c46ce, inset 4px 4px 15px 0px #6c46ce,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
@@ -298,7 +298,7 @@ header > h1 {
   margin: 2rem;
   padding: 10px;
   background: var(--first-color);
-  color: white;
+  color: var(--font-color);
   border-radius: 10px;
   position: relative;
   display: block;
@@ -424,13 +424,14 @@ header > h1 {
 #form div > input,
 textarea {
   width: 100%;
-  color: white;
+  color: var(--font-color);
   background-color: #6d46ce78;
   border-radius: 3px;
 }
 
 #form div > input {
   height: 30px;
+  padding-left: 0.5rem;
 }
 
 #form #phone-number-container,
@@ -449,7 +450,7 @@ textarea {
 
 .contact-selection > label {
   width: 250px;
-  margin-bottom: 0.8rem;
+  margin: 0 0 0.8rem 0.5rem;
 }
 
 input[type="radio"] {
@@ -466,7 +467,7 @@ input[type="radio"] {
 
 input[type="radio"]:checked::after {
   content: "X";
-  color: white;
+  color: var(--font-color);
   position: absolute;
   top: 1.5px;
   left: 4px;
@@ -475,18 +476,19 @@ input[type="radio"]:checked::after {
 #form textarea {
   height: 200px;
   margin-top: 1rem;
+  padding: 0.5rem;
   resize: none;
 }
 
 #form input::placeholder,
 textarea::placeholder {
-  color: white;
+  color: var(--font-color);
 }
 
-#form button {
+.btn-typ-1 {
   width: 150px;
   height: 40px;
-  color: white;
+  color: var(--font-color);
   background-color: #6d46ce78;
   border-radius: 3px;
   cursor: pointer;
@@ -494,7 +496,7 @@ textarea::placeholder {
   transition: all 0.3s ease-in;
 }
 
-#form button:hover {
+.btn-typ-1:hover {
   background-color: #6d46ce;
 }
 
@@ -520,27 +522,38 @@ textarea::placeholder {
 }
 
 .sended-user-input {
-  width: 500px;
+  min-width: 500px;
+  width: max-content;
   height: max-content;
-  padding: 1rem 1rem 1rem 1rem;
   color: var(--font-color);
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: var(--first-color);
   border-radius: 3px;
 }
 
-.sended-user-input > p {
-  padding-bottom: var(--standard-spacing-sm);
+.sended-user-input > .sended-user-text {
+  width: 400px;
+}
+
+.sended-user-text > h2 {
+  padding: 0;
+  margin: 2rem 0 2rem 0;
+}
+
+.sended-user-text > p {
+  padding-bottom: 2rem;
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }
 
-.sended-user-input button {
-  min-width: 3rem;
-  height: 2rem;
+.user-content {
+  float: right;
 }
 
-.user-inf-btn {
+.sended-user-btns > button {
+  margin-bottom: 2rem;
   display: inline-block;
 }
 

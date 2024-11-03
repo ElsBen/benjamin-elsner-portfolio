@@ -96,11 +96,12 @@ export default class Form {
     }
 
     areTheEntriesCorrectWindow(entries) {
+        // Hier die einzelnen Entries in ein Span kapseln um mit css die Einrückung zu korrigieren
 
-        const name = `Name:` + <span class="user-content"> + `${entries.name}` + </span>;
-        const companyName = `Nachname:<span class="user-content">${entries.company}</span>`;
-        const email = `Email:<span class="user-content">${entries.email}</span>`;
-        const telephone = `Telefon:<span class="user-content">${entries.telephone}</span>`;
+        const name = `Name: ${entries.name}`;
+        const companyName = `Nachname: ${entries.company}`;
+        const email = `Email:${entries.email}`;
+        const telephone = `Telefon:${entries.telephone}`;
         const message = `Nachricht:${entries.message}`;
         // Hier eine Logik die bei vorhandensein entweder email oder Nr. diese 
         // nachträglich einfügt

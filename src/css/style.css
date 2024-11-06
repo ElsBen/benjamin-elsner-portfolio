@@ -540,10 +540,12 @@ textarea::placeholder {
 .sended-user-text > h2 {
   padding: 0;
   margin: 2rem 0 2rem 0;
+  text-align: center;
 }
 
 .sended-user-text > p {
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
+  font-weight: bold;
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }

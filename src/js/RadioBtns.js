@@ -2,12 +2,15 @@
 
 export default class RadioBtns {
     constructor() {
-        this.inputMail = document.getElementById('email-container');
-        this.inputPhone = document.getElementById('phone-number-container');
+        this.inputMailContainer = document.getElementById('email-container');
+        this.inputMail = document.getElementById('email');
+
+        this.inputPhoneContainer = document.getElementById('phone-number-container');
+        this.inputPhone = document.getElementById('phone-number');
     }
 
     start(contactType) {
-        this.inputMail.style.display = (contactType === 'email') ? 'block' : 'none';
-        this.inputPhone.style.display = (contactType === 'phone') ? 'block' : 'none';
+        this.inputMailContainer.style.display = (contactType === 'email') ? 'block' : 'none', this.inputMail.value = "";
+        this.inputPhoneContainer.style.display = (contactType === 'phone') ? 'block' : 'none', this.inputPhone.value = "";
     }
 }

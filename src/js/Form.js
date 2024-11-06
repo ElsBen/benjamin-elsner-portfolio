@@ -6,7 +6,8 @@ export default class Form {
         this.userInputSend = document.querySelector('.sended-user-input-container');
         this.userInputSendContent = document.querySelector('.sended-user-input');
         this.validEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-        // Telefonnr. validierung fehlt!!!
+        this.validPhoneNumber = /^(\+?\d{1,3})?[-.\s]?(\(?\d{2,5}\)?)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
+
         this.saveEntr;
         this.userEntries = [];
 
@@ -21,7 +22,7 @@ export default class Form {
         if (this.form) {
             this.headlineInputSend = this.userInputSendContent.querySelector('h2');
             this.paragraphInputSend = this.userInputSendContent.querySelector('p');
-            this.colorAlert = '#ff7f50'; /*Farbwerte anpassen!!!!*/
+            this.colorAlert = '#ff7f50';
             this.colorSuccess = 'var(--font-color)';
             this.userInputSendBtn = document.querySelector(
                 '.user-input-sended-btn'
@@ -45,8 +46,11 @@ export default class Form {
         this.userInputSendContent.addEventListener('click', (e) => {
 
             if (e.target.innerHTML.match('Ja')) {
+                // this.userInputSend.classList.add('box-style-2');
+                // Hier evtl eine Kleine Ladezeit Animation!
                 setTimeout(() => {
                     this.userInputCancelBtn.style.display = 'none';
+                    // this.userInputSend.classList.remove('box-style-2');
                     this.saveUserEntries(this.saveEntr);
                 }, 1000)
             } else if (e.target.innerHTML.match('Nein')) {
@@ -64,17 +68,18 @@ export default class Form {
 
             const formName = document.querySelector('#name').value;
             const formCompanyName = document.querySelector('#company-name').value;
-            const formEMail = document.querySelector('#email').value;
-            const formTelNumber =
-                document.querySelector('#phone-number').value;
+            const formEMail = document.querySelector(`#email`).value;
+            const formTelNumber = document.querySelector('#phone-number').value;
             const formMessage = document.querySelector('#message').value;
+            let contactValue;
+
+            (formEMail) ? contactValue = formEMail : contactValue = formTelNumber;
 
             const saveEntries = {
                 name: formName,
                 company: formCompanyName,
-                email: formEMail,
-                telephone: formTelNumber,
-                message: formMessage,
+                contact: contactValue,
+                message: formMessage
             };
 
             this.userInputCancelBtn.style.display = 'inline-block';
@@ -82,30 +87,24 @@ export default class Form {
         });
     }
 
-    // Nachfolgenden Code Prüfen und ggf. anpassen.
-
     checkEntriesValid(checkEntries) {
-
-        // Hier evtl. auslesen ob Telenr. oder Email ausgewählt wurde!!!!
-        if (checkEntries.email.match(this.validEmail) && this.form) {
+        if (checkEntries.contact.match(this.validEmail) || checkEntries.contact.match(this.validPhoneNumber)) {
             this.areTheEntriesCorrectWindow(checkEntries);
         } else {
             this.userInputCancelBtn.style.display = 'none';
-            this.validatAndBuildSendStateWindow('mail-unvalid');
+            this.validatAndBuildSendStateWindow('mail-or-number-unvalid');
         }
     }
 
     areTheEntriesCorrectWindow(entries) {
         // Hier die einzelnen Entries in ein Span kapseln um mit css die Einrückung zu korrigieren
 
-        const name = `Name: ${entries.name}`;
-        const companyName = `Nachname: ${entries.company}`;
-        const email = `Email:${entries.email}`;
-        const telephone = `Telefon:${entries.telephone}`;
+        const name = `Name:     ${entries.name}`;
+        const companyName = `Firma:     ${entries.company}`;
+        const contactValue = `Kontakt:  ${entries.contact}`;
         const message = `Nachricht:${entries.message}`;
-        // Hier eine Logik die bei vorhandensein entweder email oder Nr. diese 
-        // nachträglich einfügt
-        const formattedEntries = [name, companyName, email, telephone, message];
+
+        const formattedEntries = [name, companyName, contactValue, message];
 
         this.validatAndBuildSendStateWindow(formattedEntries, entries);
     }
@@ -139,35 +138,29 @@ export default class Form {
                 content = 'Vielen Dank für Ihr Vertrauen. Wir haben Ihre Anfrage erhalten und werden uns schnellstmöglich darum kümmern.';
                 btnContent = 'Schließen';
                 color = this.colorSuccess;
-                this.buildUserInformationWindow(headline, content, btnContent, color);
                 break;
 
-            case 'mail-unvalid':
+            case 'mail-or-number-unvalid':
                 headline = 'Upps, da ist etwas schiefgelaufen. Versuchen Sie es noch einmal!';
-                content = 'Die von Ihnen eingegebene Email Adresse entspricht nicht dem gängigen Format für Email Adressen';
+                content = 'Die von Ihnen eingegebene Email Adresse oder Telefonnummer entspricht nicht dem gängigen Format!';
                 btnContent = 'Schließen';
                 color = this.colorAlert;
-                this.buildUserInformationWindow(headline, content, btnContent, color);
                 break;
 
             case 'Array':
                 headline = 'Sind Ihre Angaben richtig?';
                 let counter = 0;
 
-
                 content = JSON.stringify(arrChecked).replace(/,/g, match => {
                     counter++
                     return (counter <= 4) ? '\n' : match;
                 });
 
-                // Prüfen!!! Einige Teile können durch den wegfall des Performanceteils weg!!!
                 content = content.replace(/["\\\[\]]/g, '');
-                // content = content.split(/, Auswahl:/g).join('\n\nAuswahl:\n');
                 content = content.replace(/Nachricht:/g, '\nNachricht:\n');
                 btnContent = 'Ja';
                 color = this.colorSuccess;
                 this.saveEntr = entries;
-                this.buildUserInformationWindow(headline, content, btnContent, color);
                 break;
 
             case false:
@@ -175,9 +168,10 @@ export default class Form {
                 content = 'Klicken Sie auf Schließen und korrigieren Sie den falschen Eintrag (Die Einträge in den Eingabefeldern bleiben erhalten).';
                 btnContent = 'Schließen';
                 color = this.colorAlert;
-                this.buildUserInformationWindow(headline, content, btnContent, color);
                 break;
         }
+
+        this.buildUserInformationWindow(headline, content, btnContent, color);
     }
 
     buildUserInformationWindow(headline, content, btnContent, color) {

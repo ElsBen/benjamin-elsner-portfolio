@@ -14,9 +14,9 @@ typingText.start();
 const form = new Form;
 form.start();
 
-function showInput(contactType) {
+export function showInput(contactChoice) {
     const radioBtns = new RadioBtns;
-    radioBtns.start(contactType);
+    radioBtns.start(contactChoice);
 };
 
 window.showInput = showInput; /*showInput im HTML verfügbar machen*/

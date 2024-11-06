@@ -2,7 +2,6 @@
 
 export default class Stars {
     constructor() {
-
         this.numStars = 100;
         this.body = document.querySelector("#background");
 

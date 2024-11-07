@@ -46,11 +46,8 @@ export default class Form {
         this.userInputSendContent.addEventListener('click', (e) => {
 
             if (e.target.innerHTML.match('Ja')) {
-                // this.userInputSend.classList.add('box-style-2');
-                // Hier evtl eine Kleine Ladezeit Animation!
                 setTimeout(() => {
                     this.userInputCancelBtn.style.display = 'none';
-                    // this.userInputSend.classList.remove('box-style-2');
                     this.saveUserEntries(this.saveEntr);
                 }, 1000)
             } else if (e.target.innerHTML.match('Nein')) {
@@ -97,8 +94,6 @@ export default class Form {
     }
 
     areTheEntriesCorrectWindow(entries) {
-        // Hier die einzelnen Entries in ein Span kapseln um mit css die Einrückung zu korrigieren
-
         const name = `Name:     ${entries.name}`;
         const companyName = `Firma:     ${entries.company}`;
         const contactValue = `Kontakt:  ${entries.contact}`;

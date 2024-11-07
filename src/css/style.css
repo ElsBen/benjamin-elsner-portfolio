@@ -3,7 +3,7 @@
 :root {
   --back-color: #0c0417;
   --back-sub-color: #191970;
-  --head-font-color: #e5e4e6;
+  --transparent-color: #faf8fc13;
   --font-color: white;
   --sub-font-color: #7f8791;
   --main-color: #190e38;
@@ -410,6 +410,7 @@ header > h1 {
   width: 30%;
   height: 700px;
   padding: 3rem;
+  margin-bottom: 6rem;
   display: inline-flex;
   flex-direction: column;
   justify-content: space-around;
@@ -564,8 +565,44 @@ textarea::placeholder {
   margin-left: 3.5rem;
 }
 
+/* ### FOOTER ### */
+
+#navbar-footer {
+  width: 100%;
+  height: 50px;
+  background-color: var(--transparent-color);
+}
+
+.imprint-container {
+  width: max-content;
+  height: 30px;
+  background-color: var(--first-color);
+  margin-top: 10px;
+  margin-right: 3rem;
+  border-radius: 5px;
+  border: 2px solid var(--first-color);
+  float: right;
+  transition: 0.5s all ease-in-out;
+}
+
+.imprint-container > a {
+  color: var(--font-color);
+  font-size: 1.5rem;
+  padding: 0 1rem 0 1rem;
+  text-decoration: none;
+  transition: inherit;
+}
+
+.imprint-container:hover {
+  background-color: var(--fourth-color);
+}
+
+.imprint-container > a:hover {
+  color: var(--back-sub-color);
+}
+
 /* TEST SVG */
-.animate-circle {
+/* .animate-circle {
   margin: 5rem;
   animation: pulse 2s infinite;
 }
@@ -583,4 +620,4 @@ textarea::placeholder {
     r: 40;
     fill: blue;
   }
-}
+} */

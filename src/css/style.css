@@ -41,9 +41,10 @@ label,
 li {
   cursor: default;
   user-select: none;
+  color: var(--font-color);
 }
 
-h2 {
+main h2 {
   font-size: 3rem;
   padding: 0 0 4rem 0;
 }
@@ -567,25 +568,27 @@ textarea::placeholder {
 
 /* ### FOOTER ### */
 
-#navbar-footer {
+.navbar-footer {
   width: 100%;
   height: 50px;
   background-color: var(--transparent-color);
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-around;
 }
 
-.imprint-container {
+.nav-btn-container {
   width: max-content;
   height: 30px;
   background-color: var(--first-color);
   margin-top: 10px;
-  margin-right: 3rem;
   border-radius: 5px;
   border: 2px solid var(--first-color);
   float: right;
   transition: 0.5s all ease-in-out;
 }
 
-.imprint-container > a {
+.nav-btn-container > a {
   color: var(--font-color);
   font-size: 1.5rem;
   padding: 0 1rem 0 1rem;
@@ -593,31 +596,45 @@ textarea::placeholder {
   transition: inherit;
 }
 
-.imprint-container:hover {
+.nav-btn-container:hover {
   background-color: var(--fourth-color);
 }
 
-.imprint-container > a:hover {
+.nav-btn-container > a:hover {
   color: var(--back-sub-color);
 }
 
-/* TEST SVG */
-/* .animate-circle {
-  margin: 5rem;
-  animation: pulse 2s infinite;
+/* ### IMPRINT ### */
+
+.imprint-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
-@keyframes pulse {
-  0% {
-    r: 40;
-    fill: blue;
-  }
-  50% {
-    r: 60;
-    fill: red;
-  }
-  100% {
-    r: 40;
-    fill: blue;
-  }
-} */
+.imprint-container > .imprint-content {
+  width: 80%;
+  padding: 1rem 0 2rem 0;
+}
+
+.imprint-content > h1 {
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem 0;
+}
+
+.imprint-content > h2,
+h3,
+h4 {
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.imprint-content > ul {
+  padding-left: 3rem;
+  margin: 0.2rem 0 0.4rem 0;
+}
+
+.imprint-content > ul > li {
+  padding-bottom: 0.1rem;
+}

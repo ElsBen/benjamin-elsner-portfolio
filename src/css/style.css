@@ -117,12 +117,10 @@ header > h1 {
   flex-direction: row;
   align-items: center;
   width: 100%;
-  /* padding: 0 7rem 0 7rem; */
 }
 
 #typing-animation {
   width: max-content;
-  /* min-width: 50%; */
   min-height: 1000px;
 }
 
@@ -137,7 +135,7 @@ header > h1 {
 
 @media (max-width: 850px) {
   #typing-animation > p {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 }
 
@@ -290,6 +288,10 @@ header > h1 {
 }
 
 @media (max-width: 850px) {
+  .info-box-right {
+    max-width: 45%;
+  }
+
   .info-box-right > p {
     font-size: 2rem;
   }

@@ -138,7 +138,8 @@ header > h1 {
     min-height: 576px;
   }
 
-  #typing-animation > p {
+  #typing-animation > p,
+  .cursor {
     font-size: 2rem;
   }
 }

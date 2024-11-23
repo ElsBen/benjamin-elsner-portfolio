@@ -121,19 +121,23 @@ header > h1 {
 
 #typing-animation {
   width: max-content;
-  min-height: 1000px;
+  min-height: 330px;
 }
 
 #typing-animation > p {
   color: var(--font-color);
   font-size: 1.5rem;
-  width: 925px;
+  width: 935px;
   min-height: 2.5%;
   white-space: normal;
   line-height: 1.2;
 }
 
 @media (max-width: 850px) {
+  #typing-animation {
+    min-height: 576px;
+  }
+
   #typing-animation > p {
     font-size: 2rem;
   }

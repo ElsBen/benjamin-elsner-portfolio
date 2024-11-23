@@ -49,6 +49,7 @@ export default class TypingText {
         setTimeout(() => {
             // this.typingAnimationElement.lastElementChild.removeChild(this.cursor[0]);
             // this.paragraphs[this.textIndex].removeChild(this.cursor[0]);
+            this.cursor[0].remove();
             delayedFunction();
         },
             delay

@@ -115,25 +115,35 @@ header > h1 {
   display: flex;
   justify-content: center;
   flex-direction: row;
+  align-items: center;
   width: 100%;
-  padding: 0 7rem 0 7rem;
+  /* padding: 0 7rem 0 7rem; */
 }
 
 #typing-animation {
-  width: 100%;
+  width: max-content;
+  /* min-width: 50%; */
   min-height: 1000px;
 }
 
 #typing-animation > p {
   color: var(--font-color);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  width: 925px;
+  min-height: 2.5%;
   white-space: normal;
   line-height: 1.2;
 }
 
+@media (max-width: 850px) {
+  #typing-animation > p {
+    font-size: 1.5rem;
+  }
+}
+
 .cursor {
   color: var(--font-color);
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bolder;
   position: relative;
   animation: blink-cursor 0.75s step-end infinite;
@@ -227,6 +237,7 @@ header > h1 {
 .info-box-right {
   background-color: var(--first-color);
   color: var(--font-color);
+  font-size: 2rem;
   align-self: flex-end;
   animation-delay: 2s;
   z-index: 9;
@@ -275,6 +286,12 @@ header > h1 {
   }
   100% {
     background-position: 40% 40%;
+  }
+}
+
+@media (max-width: 850px) {
+  .info-box-right > p {
+    font-size: 2rem;
   }
 }
 
